@@ -1,6 +1,7 @@
 const compression = require('compression');
 const express = require('express');
 const helmet = require('helmet');
+const port = process.env.PORT || 4000;
 let app = express();
 
 app.set('view engine', 'pug');
@@ -8,14 +9,14 @@ app.use(express.static('public'));
 app.use(compression());
 app.use(helmet());
 
-app.get('*', function(req, res) {
+app.get('*', (req, res) => {
     res.render('index');
 });
 
 app.listen(
-    process.env.PORT || 4000,
+    port,
     '0.0.0.0',
-    function() {
-        console.log("Svelte running: http://localhost:4000");
+    () => {
+        console.log(`Running: http://localhost:${port}`);
     }
 );

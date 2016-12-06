@@ -1,7 +1,9 @@
 {
   "name": "svelte",
+  "description": "Demo app running Svelte JS",
   "version": "1.0.0",
-  "main": "index.js",
+  "author": "Tom Franks",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
     "prebuild": "rm -rf public/dist && mkdir -p public/dist",
