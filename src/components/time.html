@@ -1,0 +1,32 @@
+<section class="time">
+    <p>Time: {{ hours }}:{{ mins }}:{{ sec }}</p>
+</section>
+
+<style>
+    .time {
+        padding: 0.8rem;
+    }
+</style>
+
+<script>
+    export default {
+        onrender () {
+            this.interval = setInterval(() => {
+                this.set({ time: new Date() });
+            }, 100);
+        },
+        onteardown () {
+            clearInterval(this.interval);
+        },
+        data () {
+            return {
+                time: new Date()
+            };
+        },
+        computed: {
+            hours: time => time.getHours(),
+            mins: time => time.getMinutes(),
+            sec: time => time.getSeconds()
+        }
+    };
+</script>

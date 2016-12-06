@@ -1,0 +1,37 @@
+<Header name='DAZN' />
+<nav>
+    <Link to="/" text="Home" />
+    <Link to="/about" text="About" />
+</nav>
+<section id="content"></section>
+<Footer />
+
+<script>
+    import createRouter from '../services/createRouter.js';
+    import About from './about.html';
+    import Footer from './footer.html';
+    import Home from './home.html';
+    import Header from './header.html';
+    import Link from './link.html';
+
+    const router = createRouter({
+        "/": Home,
+        "/about": About
+    })
+
+    export default {
+        onrender() {
+            router.start(window.location, window.document.querySelector("#content"));
+        },
+        onteardown() {
+            router.teardown();
+        },
+        components: {
+            About,
+            Footer,
+            Header,
+            Home,
+            Link
+        }
+    };
+</script>

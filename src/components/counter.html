@@ -1,0 +1,46 @@
+<section class="counter">
+    <p>Count: {{ count }}</p>
+    <button class="button" on:click='updateCount(1)'>{{ uppercase('Increment') }}</button>
+    <button class="button" on:click='updateCount(-1)'>Decrement</button>
+</section>
+
+<style>
+    .counter {
+        padding: 0.8rem;
+    }
+    .button {
+        padding: 0.8rem;
+        background: #121212;
+        color: #fff;
+        font-size: 1.2rem;
+        border: 0;
+        outline: 0;
+        font-family: helvetica, sans-serif;
+    }
+</style>
+
+<script>
+    import uppercase from '../helpers/uppercase';
+
+    export default {
+        onrender () {
+            this.observeCount = this.observe('count', (newCount, oldCount) => {
+                console.log(`Count changed from ${oldCount} to ${newCount}`);
+            }, { init: false });
+        },
+        helpers: {
+            uppercase
+        },
+        methods: {
+            updateCount (val) {
+                this.set({ count: this.get('count') + val });
+                this.fire('counterChanged');
+            }
+        },
+        data () {
+            return {
+                count: 0
+            };
+        }
+    };
+</script>
