@@ -3,7 +3,7 @@
 ### Prerequisities
 Latest version of Node
 
-If you don't have rollup installed then install it now globally:
+Global install of rollup:
 `yarn global add rollup`
 
 ### Installing
