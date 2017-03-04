@@ -2,12 +2,11 @@
 
 ### Prerequisities
 Latest version of Node
-
-Global install of rollup:
-`yarn global add rollup`
+Yarn (`npm i -g yarn`)
 
 ### Installing
 `yarn`
+`yarn build`
 
 ### running
 `yarn start`

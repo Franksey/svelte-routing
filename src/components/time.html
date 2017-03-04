@@ -10,12 +10,12 @@
 
 <script>
     export default {
-        onrender () {
+        oncreate () {
             this.interval = setInterval(() => {
                 this.set({ time: new Date() });
             }, 100);
         },
-        onteardown () {
+        ondestroy () {
             clearInterval(this.interval);
         },
         data () {
