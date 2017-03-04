@@ -20,10 +20,10 @@
     })
 
     export default {
-        onrender() {
+        oncreate() {
             router.start(window.location, window.document.querySelector("#content"));
         },
-        onteardown() {
+        ondestroy() {
             router.teardown();
         },
         components: {

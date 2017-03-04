@@ -23,7 +23,7 @@
     import uppercase from '../helpers/uppercase';
 
     export default {
-        onrender () {
+        oncreate () {
             this.observeCount = this.observe('count', (newCount, oldCount) => {
                 console.log(`Count changed from ${oldCount} to ${newCount}`);
             }, { init: false });
